@@ -40,12 +40,9 @@ extern "C" {
   * @{
   */ 
 
-// Konfigurasi untuk STM32F1 series
-#define GPIO_PORT_1 GPIOA
-#define GPIO_PORT_2 GPIOB
-#define GPIO_PORT_3 GPIOC
-#define GPIO_PORT_4 GPIOD
-
+/**
+ * Default Configuration for Port and Pin
+ */
 #define GPIOA_0 0x0100
 #define GPIOA_1 0x0101
 #define GPIOA_2 0x0102
@@ -115,12 +112,6 @@ extern "C" {
 #define GPIOD_15 0x040F
 
 #ifdef STM32F4xx // Konfigurasi untuk STM32F4 series
-    #define GPIO_PORT_5 GPIOE
-    #define GPIO_PORT_6 GPIOF
-    #define GPIO_PORT_7 GPIOG
-    #define GPIO_PORT_8 GPIOH
-    #define GPIO_PORT_9 GPIOI
-
     #define GPIOE_0 0x0500
     #define GPIOE_1 0x0501
     #define GPIOE_2 0x0502
@@ -223,21 +214,12 @@ typedef enum
 } GPIO_Mode;
 
 GPIO_TypeDef *_portChart[8] = {
-//    GPIO_PORT_1, // GPIOA
-//    GPIO_PORT_2, // GPIOB
-//    GPIO_PORT_3, // GPIOC
-//    GPIO_PORT_4  // GPIOD
 	GPIOA,
 	GPIOB,
 	GPIOC,
 	GPIOD,
 
 #ifdef STM32F4xx
-//    GPIO_PORT_5, // GPIOE
-//    GPIO_PORT_6, // GPIOF
-//    GPIO_PORT_7, // GPIOG
-//    GPIO_PORT_8, // GPIOH
-//    GPIO_PORT_9  // GPIOI
 	GPIOE,
 	GPIOF,
 	GPIOG,
