@@ -29,7 +29,8 @@
 #define INC_STM32_MACROS_H_
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -37,12 +38,15 @@ extern "C" {
 #include "main.h"
 
 /** @addtogroup Peripheral_declaration
-  * @{
-  */ 
-
-/**
- * Default Configuration for Port and Pin
+ * @{
  */
+
+// Konfigurasi untuk STM32F1 series
+#define GPIO_PORT_1 GPIOA
+#define GPIO_PORT_2 GPIOB
+#define GPIO_PORT_3 GPIOC
+#define GPIO_PORT_4 GPIOD
+
 #define GPIOA_0 0x0100
 #define GPIOA_1 0x0101
 #define GPIOA_2 0x0102
@@ -112,78 +116,84 @@ extern "C" {
 #define GPIOD_15 0x040F
 
 #ifdef STM32F4xx // Konfigurasi untuk STM32F4 series
-    #define GPIOE_0 0x0500
-    #define GPIOE_1 0x0501
-    #define GPIOE_2 0x0502
-    #define GPIOE_3 0x0504
-    #define GPIOE_4 0x0504
-    #define GPIOE_5 0x0505
-    #define GPIOE_6 0x0506
-    #define GPIOE_7 0x0507
-    #define GPIOE_8 0x0508
-    #define GPIOE_9 0x0509
-    #define GPIOE_10 0x050A
-    #define GPIOE_11 0x050B
-    #define GPIOE_12 0x050C
-    #define GPIOE_13 0x050D
-    #define GPIOE_14 0x050E
-    #define GPIOE_15 0x050F
+#define GPIO_PORT_5 GPIOE
+#define GPIO_PORT_6 GPIOF
+#define GPIO_PORT_7 GPIOG
+#define GPIO_PORT_8 GPIOH
+#define GPIO_PORT_9 GPIOI
 
-    #define GPIOF_0 0x0600
-    #define GPIOF_1 0x0601
-    #define GPIOF_2 0x0602
-    #define GPIOF_3 0x0604
-    #define GPIOF_4 0x0604
-    #define GPIOF_5 0x0605
-    #define GPIOF_6 0x0606
-    #define GPIOF_7 0x0607
-    #define GPIOF_8 0x0608
-    #define GPIOF_9 0x0609
-    #define GPIOF_10 0x060A
-    #define GPIOF_11 0x060B
-    #define GPIOF_12 0x060C
-    #define GPIOF_13 0x060D
-    #define GPIOF_14 0x060E
-    #define GPIOF_15 0x060F
+#define GPIOE_0 0x0500
+#define GPIOE_1 0x0501
+#define GPIOE_2 0x0502
+#define GPIOE_3 0x0504
+#define GPIOE_4 0x0504
+#define GPIOE_5 0x0505
+#define GPIOE_6 0x0506
+#define GPIOE_7 0x0507
+#define GPIOE_8 0x0508
+#define GPIOE_9 0x0509
+#define GPIOE_10 0x050A
+#define GPIOE_11 0x050B
+#define GPIOE_12 0x050C
+#define GPIOE_13 0x050D
+#define GPIOE_14 0x050E
+#define GPIOE_15 0x050F
 
-    #define GPIOG_0 0x0700
-    #define GPIOG_1 0x0701
-    #define GPIOG_2 0x0702
-    #define GPIOG_3 0x0704
-    #define GPIOG_4 0x0704
-    #define GPIOG_5 0x0705
-    #define GPIOG_6 0x0706
-    #define GPIOG_7 0x0707
-    #define GPIOG_8 0x0708
-    #define GPIOG_9 0x0709
-    #define GPIOG_10 0x070A
-    #define GPIOG_11 0x070B
-    #define GPIOG_12 0x070C
-    #define GPIOG_13 0x070D
-    #define GPIOG_14 0x070E
-    #define GPIOG_15 0x070F
+#define GPIOF_0 0x0600
+#define GPIOF_1 0x0601
+#define GPIOF_2 0x0602
+#define GPIOF_3 0x0604
+#define GPIOF_4 0x0604
+#define GPIOF_5 0x0605
+#define GPIOF_6 0x0606
+#define GPIOF_7 0x0607
+#define GPIOF_8 0x0608
+#define GPIOF_9 0x0609
+#define GPIOF_10 0x060A
+#define GPIOF_11 0x060B
+#define GPIOF_12 0x060C
+#define GPIOF_13 0x060D
+#define GPIOF_14 0x060E
+#define GPIOF_15 0x060F
 
-    #define GPIOH_0 0x0800
-    #define GPIOH_1 0x0801
-    #define GPIOH_2 0x0802
-    #define GPIOH_3 0x0804
-    #define GPIOH_4 0x0804
-    #define GPIOH_5 0x0805
-    #define GPIOH_6 0x0806
-    #define GPIOH_7 0x0807
-    #define GPIOH_8 0x0808
-    #define GPIOH_9 0x0809
-    #define GPIOH_10 0x080A
-    #define GPIOH_11 0x080B
-    #define GPIOH_12 0x080C
-    #define GPIOH_13 0x080D
-    #define GPIOH_14 0x080E
-    #define GPIOH_15 0x080F
+#define GPIOG_0 0x0700
+#define GPIOG_1 0x0701
+#define GPIOG_2 0x0702
+#define GPIOG_3 0x0704
+#define GPIOG_4 0x0704
+#define GPIOG_5 0x0705
+#define GPIOG_6 0x0706
+#define GPIOG_7 0x0707
+#define GPIOG_8 0x0708
+#define GPIOG_9 0x0709
+#define GPIOG_10 0x070A
+#define GPIOG_11 0x070B
+#define GPIOG_12 0x070C
+#define GPIOG_13 0x070D
+#define GPIOG_14 0x070E
+#define GPIOG_15 0x070F
+
+#define GPIOH_0 0x0800
+#define GPIOH_1 0x0801
+#define GPIOH_2 0x0802
+#define GPIOH_3 0x0804
+#define GPIOH_4 0x0804
+#define GPIOH_5 0x0805
+#define GPIOH_6 0x0806
+#define GPIOH_7 0x0807
+#define GPIOH_8 0x0808
+#define GPIOH_9 0x0809
+#define GPIOH_10 0x080A
+#define GPIOH_11 0x080B
+#define GPIOH_12 0x080C
+#define GPIOH_13 0x080D
+#define GPIOH_14 0x080E
+#define GPIOH_15 0x080F
 #endif
 
-/**
-  * @}
-  */
+    /**
+     * @}
+     */
 
 #define PI 3.1415926535897932384626433832795
 #define HALF_PI 1.5707963267948966192313216916398
@@ -195,6 +205,9 @@ extern "C" {
 #define LOW 0
 #define HIGH 1
 
+#define LSBFIRST 0
+#define MSBFIRST 1
+
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define abs(x) ((x) > 0 ? (x) : -(x))
@@ -204,219 +217,270 @@ extern "C" {
 #define degrees(rad) ((rad) * RAD_TO_DEG)
 #define sq(x) ((x) * (x))
 
-typedef enum
-{
-    OUTPUT,
-    OUTPUT_OPENDRAIN,
-    INPUT,
-    INPUT_PULLUP,
-    INPUT_PULLDOWN,
-} GPIO_Mode;
+    typedef enum
+    {
+        OUTPUT,
+        OUTPUT_OPENDRAIN,
+        INPUT,
+        INPUT_PULLUP,
+        INPUT_PULLDOWN,
+    } GPIO_Mode;
 
-GPIO_TypeDef *_portChart[8] = {
-	GPIOA,
-	GPIOB,
-	GPIOC,
-	GPIOD,
+    GPIO_TypeDef *_portChart[8] = {
+        //    GPIO_PORT_1, // GPIOA
+        //    GPIO_PORT_2, // GPIOB
+        //    GPIO_PORT_3, // GPIOC
+        //    GPIO_PORT_4  // GPIOD
+        GPIOA,
+        GPIOB,
+        GPIOC,
+        GPIOD,
 
 #ifdef STM32F4xx
-	GPIOE,
-	GPIOF,
-	GPIOG,
-	GPIOH,
-	GPIOI
+        //    GPIO_PORT_5, // GPIOE
+        //    GPIO_PORT_6, // GPIOF
+        //    GPIO_PORT_7, // GPIOG
+        //    GPIO_PORT_8, // GPIOH
+        //    GPIO_PORT_9  // GPIOI
+        GPIOE,
+        GPIOF,
+        GPIOG,
+        GPIOH,
+        GPIOI
 #endif
-};
+    };
 
-const uint16_t _pinChart[16] = {
-    GPIO_PIN_0,
-    GPIO_PIN_1,
-    GPIO_PIN_2,
-    GPIO_PIN_3,
-    GPIO_PIN_4,
-    GPIO_PIN_5,
-    GPIO_PIN_6,
-    GPIO_PIN_7,
-    GPIO_PIN_8,
-    GPIO_PIN_9,
-    GPIO_PIN_10,
-    GPIO_PIN_11,
-    GPIO_PIN_12,
-    GPIO_PIN_13,
-    GPIO_PIN_14,
-    GPIO_PIN_15,
-};
+    const uint16_t _pinChart[16] = {
+        GPIO_PIN_0,
+        GPIO_PIN_1,
+        GPIO_PIN_2,
+        GPIO_PIN_3,
+        GPIO_PIN_4,
+        GPIO_PIN_5,
+        GPIO_PIN_6,
+        GPIO_PIN_7,
+        GPIO_PIN_8,
+        GPIO_PIN_9,
+        GPIO_PIN_10,
+        GPIO_PIN_11,
+        GPIO_PIN_12,
+        GPIO_PIN_13,
+        GPIO_PIN_14,
+        GPIO_PIN_15,
+    };
 
-/**
- * @brief  Fungsi untuk mendapatkan nilai port yang digunakan.
- *
- * @param  GPIO_Pin: Input port pin (misalnya, GPIOA_0)
- *         @arg GPIOA_0 : Port yang digunakan GPIOA dan pin yang digunakan PIN_0
- * @retval Pointer ke nilai port (GPIO_TypeDef*) atau NULL jika input tidak valid.
- */
-GPIO_TypeDef *STM32_getPort(uint16_t GPIO_Pin)
-{
-    // Ekstrak indeks port dari definisi pin
-    uint8_t portIndex = (GPIO_Pin >> 8) - 1;
-
-    // Periksa apakah indeks port dalam rentang yang valid
-    if (portIndex < 0 || portIndex >= sizeof(_portChart) / sizeof(GPIO_TypeDef *))
+    /**
+     * @brief  Fungsi untuk mendapatkan nilai port yang digunakan.
+     *
+     * @param  GPIO_Pin: Input port pin (misalnya, GPIOA_0)
+     *         @arg GPIOA_0 : Port yang digunakan GPIOA dan pin yang digunakan PIN_0
+     * @retval Pointer ke nilai port (GPIO_TypeDef*) atau NULL jika input tidak valid.
+     */
+    GPIO_TypeDef *STM32_getPort(uint16_t GPIO_Pin)
     {
-        return NULL; // Kembalikan NULL untuk definisi pin yang tidak valid
+        // Ekstrak indeks port dari definisi pin
+        uint8_t portIndex = (GPIO_Pin >> 8) - 1;
+
+        // Periksa apakah indeks port dalam rentang yang valid
+        if (portIndex < 0 || portIndex >= sizeof(_portChart) / sizeof(GPIO_TypeDef *))
+        {
+            return NULL; // Kembalikan NULL untuk definisi pin yang tidak valid
+        }
+
+        return _portChart[portIndex];
     }
 
-    return _portChart[portIndex];
-}
-
-/**
- * @brief  Fungsi untuk mendapatkan nilai pin yang digunakan.
- *
- * @param  GPIO_Pin: input port pin
- *         @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
- * @retval nilai pin
- */
-uint16_t STM32_getPin(uint16_t GPIO_Pin)
-{
-    // Ekstrak indeks pin dari definisi pin
-    uint8_t pinIndex = GPIO_Pin & 0xFF;
-
-    // Periksa apakah indeks pin dalam rentang yang valid
-    if (pinIndex >= sizeof(_pinChart) / sizeof(uint16_t))
+    /**
+     * @brief  Fungsi untuk mendapatkan nilai pin yang digunakan.
+     *
+     * @param  GPIO_Pin: input port pin
+     *         @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
+     * @retval nilai pin
+     */
+    uint16_t STM32_getPin(uint16_t GPIO_Pin)
     {
-        return 0xFFFF; // Kembalikan nilai tidak valid jika indeks di luar rentang
+        // Ekstrak indeks pin dari definisi pin
+        uint8_t pinIndex = GPIO_Pin & 0xFF;
+
+        // Periksa apakah indeks pin dalam rentang yang valid
+        if (pinIndex >= sizeof(_pinChart) / sizeof(uint16_t))
+        {
+            return 0xFFFF; // Kembalikan nilai tidak valid jika indeks di luar rentang
+        }
+
+        return _pinChart[pinIndex];
     }
 
-    return _pinChart[pinIndex];
-}
+    /**
+     * @brief  Fungsi untuk mengubah mode dari GPIO.
+     *
+     * @param  GPIO_Pin: input port pin
+     * 		    @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
+     *          @arg Mode : merupakan mode dari GPIO.
+     * 			@arg OUTPUT : Output with Push pull
+     * 			@arg OUTPUT_OPENDRAIN : Output with Open Drain
+     * 			@arg INPUT : Input with volatile pin
+     * 			@arg INPUT_PULLUP : Input with internal pull up pin
+     * 			@arg INPUT_PULLDOWN : Input with internal pull down pin
+     * @retval Tidak ada
+     */
+    void STM32_pinMode(uint16_t GPIO_Pin, GPIO_Mode Mode)
+    {
+        GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-/**
- * @brief  Fungsi untuk mengubah mode dari GPIO.
- *
- * @param  GPIO_Pin: input port pin
- * 		    @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
- *          @arg Mode : merupakan mode dari GPIO.
- * 			@arg OUTPUT : Output with Push pull
- * 			@arg OUTPUT_OPENDRAIN : Output with Open Drain
- * 			@arg INPUT : Input with volatile pin
- * 			@arg INPUT_PULLUP : Input with internal pull up pin
- * 			@arg INPUT_PULLDOWN : Input with internal pull down pin
- * @retval Tidak ada
- */
-void STM32_pinMode(uint16_t GPIO_Pin, GPIO_Mode Mode)
-{
-    GPIO_InitTypeDef GPIO_InitStruct = {0};
+        GPIO_TypeDef *_Port = STM32_getPort(GPIO_Pin);
+        uint16_t _Pin = STM32_getPin(GPIO_Pin);
 
-    GPIO_TypeDef *_Port = STM32_getPort(GPIO_Pin);
-    uint16_t _Pin = STM32_getPin(GPIO_Pin);
-
-    /* GPIO Ports Clock Enable */
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    __HAL_RCC_GPIOC_CLK_ENABLE();
-    __HAL_RCC_GPIOD_CLK_ENABLE();
+        /* GPIO Ports Clock Enable */
+        __HAL_RCC_GPIOA_CLK_ENABLE();
+        __HAL_RCC_GPIOB_CLK_ENABLE();
+        __HAL_RCC_GPIOC_CLK_ENABLE();
+        __HAL_RCC_GPIOD_CLK_ENABLE();
 #ifdef STM32F4xx
-    __HAL_RCC_GPIOE_CLK_ENABLE();
-    __HAL_RCC_GPIOF_CLK_ENABLE();
-    __HAL_RCC_GPIOG_CLK_ENABLE();
-    __HAL_RCC_GPIOH_CLK_ENABLE();
-    __HAL_RCC_GPIOI_CLK_ENABLE();
+        __HAL_RCC_GPIOE_CLK_ENABLE();
+        __HAL_RCC_GPIOF_CLK_ENABLE();
+        __HAL_RCC_GPIOG_CLK_ENABLE();
+        __HAL_RCC_GPIOH_CLK_ENABLE();
+        __HAL_RCC_GPIOI_CLK_ENABLE();
 #endif
 
-    HAL_GPIO_WritePin(_Port, _Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(_Port, _Pin, GPIO_PIN_RESET);
 
-    GPIO_InitStruct.Pin = _Pin;
+        GPIO_InitStruct.Pin = _Pin;
 
-    switch (Mode)
-    {
-    case OUTPUT:
-        GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-        GPIO_InitStruct.Pull = GPIO_NOPULL;
-        break;
-    case OUTPUT_OPENDRAIN:
-        GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
-        GPIO_InitStruct.Pull = GPIO_NOPULL;
-        break;
-    case INPUT:
-        GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-        GPIO_InitStruct.Pull = GPIO_NOPULL;
-        break;
-    case INPUT_PULLUP:
-        GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-        GPIO_InitStruct.Pull = GPIO_PULLUP;
-        break;
-    case INPUT_PULLDOWN:
-        GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-        GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-        break;
+        switch (Mode)
+        {
+        case OUTPUT:
+            GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+            GPIO_InitStruct.Pull = GPIO_NOPULL;
+            break;
+        case OUTPUT_OPENDRAIN:
+            GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+            GPIO_InitStruct.Pull = GPIO_NOPULL;
+            break;
+        case INPUT:
+            GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+            GPIO_InitStruct.Pull = GPIO_NOPULL;
+            break;
+        case INPUT_PULLUP:
+            GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+            GPIO_InitStruct.Pull = GPIO_PULLUP;
+            break;
+        case INPUT_PULLDOWN:
+            GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+            GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+            break;
+        }
+
+        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+
+        HAL_GPIO_Init(_Port, &GPIO_InitStruct);
     }
 
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-
-    HAL_GPIO_Init(_Port, &GPIO_InitStruct);
-}
-
-/**
- * @brief  Fungsi untuk mengubah pin yang dipilih menjadi HIGH atau LOW.
- *
- * @note   fungsi ini menggunakan GPIOx_BSRR register untuk melakukan pengaksesan.
- * 		dengan cara ini tidak ada resiko IRQ ketika memodifikasi pembacaan dan akses.
- *
- * @param  GPIO_Pin: input port pin
- * 		   @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
- * @param  state: kondisi dari pin yang akan di tulis.
- *            @arg LOW: untuk membuat kondisi pin menjadi LOW
- *            @arg HIGH: untuk membuat kondisi pin menjadi HIGH
- * @retval Tidak ada
- */
-void STM32_digitalWrite(uint16_t GPIO_Pin, _Bool PinState)
-{
-
-    GPIO_TypeDef *_Port = STM32_getPort(GPIO_Pin);
-    uint16_t _Pin = STM32_getPin(GPIO_Pin);
-
-    assert_param(IS_GPIO_PIN(_pin));
-    assert_param(IS_GPIO_PIN_ACTION(PinState));
-
-    if (PinState != GPIO_PIN_RESET)
+    /**
+     * @brief  Fungsi untuk mengubah pin yang dipilih menjadi HIGH atau LOW.
+     *
+     * @note   fungsi ini menggunakan GPIOx_BSRR register untuk melakukan pengaksesan.
+     * 		dengan cara ini tidak ada resiko IRQ ketika memodifikasi pembacaan dan akses.
+     *
+     * @param  GPIO_Pin: input port pin
+     * 		   @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
+     * @param  state: kondisi dari pin yang akan di tulis.
+     *            @arg LOW: untuk membuat kondisi pin menjadi LOW
+     *            @arg HIGH: untuk membuat kondisi pin menjadi HIGH
+     * @retval Tidak ada
+     */
+    void STM32_digitalWrite(uint16_t GPIO_Pin, _Bool PinState)
     {
-        _Port->BSRR = _Pin;
+
+        GPIO_TypeDef *_Port = STM32_getPort(GPIO_Pin);
+        uint16_t _Pin = STM32_getPin(GPIO_Pin);
+
+        assert_param(IS_GPIO_PIN(_pin));
+        assert_param(IS_GPIO_PIN_ACTION(PinState));
+
+        if (PinState != GPIO_PIN_RESET)
+        {
+            _Port->BSRR = _Pin;
+        }
+        else
+        {
+            _Port->BSRR = (uint32_t)_Pin << 16u;
+        }
     }
-    else
+
+    /**
+     * @brief  Membaca kondisi digital GPIO.
+     * @param  GPIO_Pin: input port pin
+     * 		   @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
+     * @retval Nilai input port pin.
+     */
+    _Bool STM32_digitalRead(uint16_t GPIO_Pin)
     {
-        _Port->BSRR = (uint32_t)_Pin << 16u;
+        GPIO_TypeDef *_Port = STM32_getPort(GPIO_Pin);
+        uint16_t _Pin = STM32_getPin(GPIO_Pin);
+
+        _Bool bitstatus;
+
+        /* Check the parameters */
+        assert_param(IS_GPIO_PIN(_Pin));
+
+        if ((_Port->IDR & _Pin) != (uint32_t)GPIO_PIN_RESET)
+        {
+            bitstatus = HIGH;
+        }
+        else
+        {
+            bitstatus = LOW;
+        }
+        return bitstatus;
     }
-}
 
-/**
- * @brief  Membaca kondisi digital GPIO.
- * @param  GPIO_Pin: input port pin
- * 		   @arg GPIOA_0 : port yang digunakan GPIOA dan pin yang digunakan PIN_0
- * @retval Nilai input port pin.
- */
-_Bool STM32_digitalRead(uint16_t GPIO_Pin)
-{
-    GPIO_TypeDef *_Port = STM32_getPort(GPIO_Pin);
-    uint16_t _Pin = STM32_getPin(GPIO_Pin);
-
-    _Bool bitstatus;
-
-    /* Check the parameters */
-    assert_param(IS_GPIO_PIN(_Pin));
-
-    if ((_Port->IDR & _Pin) != (uint32_t)GPIO_PIN_RESET)
+    /**
+     * @brief belum tau
+     * @param belum tau
+     * 		   @arg belum tau
+     * @retval belum tau
+     */
+    uint8_t shiftIn(uint8_t _dataPin, uint8_t _clockPin, uint8_t _bitOrder)
     {
-        bitstatus = HIGH;
+        uint8_t _value = 0;
+
+        for (uint8_t i = 0; i < 8; ++i)
+        {
+            // digitalWrite(clockPin, HIGH);
+            if (bitOrder == LSBFIRST)
+                _value |= STM32_digitalRead(_dataPin) << i;
+            else
+                _value |= STM32_digitalRead(_dataPin) << (7 - i);
+            STM32_digitalWrite(_clockPin, HIGH);
+            STM32_digitalWrite(_clockPin, LOW);
+        }
+        return _value;
     }
-    else
+
+    /**
+     * @brief belum tau
+     * @param belum tau
+     * 		   @arg belum tau
+     * @retval belum tau
+     */
+    void shiftOut(uint8_t _dataPin, uint8_t _clockPin, uint8_t _bitOrder, uint8_t _val)
     {
-        bitstatus = LOW;
+        for (uint8_t i = 0; i < 8; i++)
+        {
+            if (_bitOrder == LSBFIRST)
+                STM32_digitalWrite(_dataPin, !!(_val & (1 << i)));
+            else
+                STM32_digitalWrite(_dataPin, !!(_val & (1 << (7 - i))));
+
+            STM32_digitalWrite(_clockPin, HIGH);
+            STM32_digitalWrite(_clockPin, LOW);
+        }
     }
-    return bitstatus;
-}
+    //	your macros here...
 
-//	your macros here...
-
-//	-------------------
+    //	-------------------
 
 #ifdef __cplusplus
 }
